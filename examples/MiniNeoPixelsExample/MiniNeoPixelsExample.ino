@@ -1,7 +1,7 @@
 /**
  * MiniNeoPixelsExample.ino
  * 
- * This sketch will loop through the different colors and display the color name.
+ * This sketch will flash different colors on the strip and display the color name.
 */
 
 #include <LiquidCrystal.h>
