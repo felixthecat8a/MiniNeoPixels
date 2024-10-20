@@ -7,10 +7,10 @@
 
 class MiniNeoPixels {
 private:
+  Adafruit_NeoPixel pixels;
   int _count; // Number of LEDs
 
 public:
-  Adafruit_NeoPixel pixels;
   MiniNeoPixels(int pin,int count);
   void begin();
   void begin(int brightness);
