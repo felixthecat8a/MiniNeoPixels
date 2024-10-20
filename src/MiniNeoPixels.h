@@ -14,6 +14,7 @@ public:
   MiniNeoPixels(int pin,int count);
   void begin();
   void begin(int brightness);
+  void adjustBrightness(int brightness);
   void colorAll(int red, int green, int blue);
   void colorOne(int num, int red, int green, int blue);
 };
