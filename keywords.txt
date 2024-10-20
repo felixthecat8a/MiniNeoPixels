@@ -1,0 +1,16 @@
+#######################################
+# MiniNeoPixels Library - keywords.txt
+#######################################
+
+# Datatypes (KEYWORD1)
+MiniNeoPixels   KEYWORD1
+Adafruit_NeoPixel   KEYWORD1
+
+# Methods and Functions (KEYWORD2)
+begin   KEYWORD2
+colorAll	KEYWORD2
+colorOne	KEYWORD2
+
+# Constants (KEYWORD2)
+NEO_GRB	KEYWORD2
+NEO_KHZ800	KEYWORD2
