@@ -18,7 +18,7 @@ This library wraps around `Adafruit_NeoPixel`, providing simple methods to contr
 #include "MiniNeoPixels.h"
 
 #define PIXEL_PIN 3 // input pin Neopixel is attached to
-#define PIXEL_COUNT 2 // number of neopixels in strip
+#define PIXEL_COUNT 10 // number of neopixels in strip
 MiniNeoPixels pixels(PIXEL_PIN, PIXEL_COUNT);
 
 #define PIXEL_BRIGHTNESS 50 // a brightness value from 0 - 255
