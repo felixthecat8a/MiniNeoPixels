@@ -15,6 +15,10 @@ void MiniNeoPixels::begin(int brightness) {
   pixels.setBrightness(brightness);
 }
 
+void MiniNeoPixels::adjustBrightness(int brightness) {
+  pixels.setBrightness(brightness);
+}
+
 void MiniNeoPixels::colorAll(int red, int green, int blue) {
   for (int i = 0; i < _count; i++) {
     pixels.setPixelColor(i, red, green, blue);
