@@ -11,7 +11,7 @@ private:
   int _count;
 
 public:
-  Pixels(int pin,int count):neopixels(count, pin, NEO_GRB + NEO_KHZ800) {
+  MiniNeoPixels(int pin,int count):neopixels(count, pin, NEO_GRB + NEO_KHZ800) {
     _count = count; // number of pixels
   }
   void begin() {
