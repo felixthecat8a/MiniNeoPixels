@@ -36,6 +36,51 @@ public:
       neopixels.show();
     }
   }
+  void clear() {
+    neopixels.clear();
+  }
+  void all(int red, int green, int blue) {
+    colorAll(red, green, blue);
+  }
+  void one(int num, int red, int green, int blue) {
+    colorOne(num, red, green, blue);
+  }
+  void red() {
+    colorAll(255,0,0);
+  }
+  void red(int num) {
+    colorOne(num,255,0,0);
+  }
+  void yellow() {
+    colorAll(255,255,0);
+  }
+  void yellow(int num) {
+    colorOne(num,255,255,0);
+  }
+  void green() {
+    colorAll(0,255,0);
+  }
+  void green(int num) {
+    colorOne(num,0,255,0);
+  }
+  void cyan() {
+    colorAll(0,255,255);
+  }
+  void cyan(int num) {
+    colorOne(num,0,255,255);
+  }
+  void blue() {
+    colorAll(0,0,255);
+  }
+  void blue(int num) {
+    colorOne(num,0,0,255);
+  }
+  void magenta() {
+    colorAll(255,0,255);
+  }
+  void magenta(int num) {
+    colorOne(num,255,0,255);
+  }
 };
 
 #endif
