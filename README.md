@@ -25,20 +25,29 @@ MiniNeoPixels pixels(PIXEL_PIN, PIXEL_COUNT);
 
 void setup() {
   pixels.begin(PIXEL_BRIGHTNESS);
-  pixels.colorAll(0, 0, 0); // off
+  pixels.clear(); // off
 }
 
 void loop() {
-  pixels.colorAll(255, 0, 0); // red
+  pixels.red();
   delay(1000);
 
-  pixels.colorAll(0, 255, 0); // green
+  pixels.all(255, 100, 0); // orange
   delay(1000);
 
-  pixels.colorAll(0, 255, 255); // Cyan
+  pixels.yellow();
   delay(1000);
 
-  pixels.colorAll(0, 0, 255); //blue
+  pixels.green();
+  delay(1000);
+
+  pixels.cyan();
+  delay(1000);
+
+  pixels.blue();
+  delay(1000);
+
+  pixels.magenta();
   delay(1000);
 }
 ```

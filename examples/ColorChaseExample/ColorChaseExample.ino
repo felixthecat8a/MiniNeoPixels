@@ -5,7 +5,7 @@
 */
 
 #include <LiquidCrystal.h>
-const int rs = 2, en = 4, d4 = 5, d5 = 6, d6 = 7, d7 = 8;
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 #include "MiniNeoPixels.h"
@@ -34,14 +34,14 @@ Color colors[NUM_COLORS] = {
 void setup() {
   lcd.begin(16, 2);
   pixels.begin(PIXEL_BRIGHTNESS);
-  pixels.colorAll(0, 0, 0);
+  pixels.all(0, 0, 0);
 }
 
 void loop() {
   int r = random(0, NUM_COLORS);
   lcd.clear(); lcd.setCursor(0, 0); lcd.print(colors[r].name);
   for (int i = 0; i < PIXEL_COUNT; i++) {
-    pixels.colorOne(i, colors[r].red, colors[r].green, colors[r].blue);
+    pixels.one(i, colors[r].red, colors[r].green, colors[r].blue);
     delay(500);
   }
 }
