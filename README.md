@@ -1,3 +1,5 @@
+# MiniNeoPixels
+
 ![GitHub Release](https://img.shields.io/github/v/release/felixthecat8a/MiniNeoPixels)
 [![License: MIT](https://img.shields.io/github/license/felixthecat8a/MiniNeoPixels)](https://opensource.org/licenses/MIT)
 ![GitHub top language](https://img.shields.io/github/languages/top/felixthecat8a/MiniNeoPixels)
@@ -9,9 +11,6 @@
 ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/felixthecat8a/MiniNeoPixels)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/felixthecat8a/MiniNeoPixels)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/felixthecat8a/MiniNeoPixels)
-
-
-# MiniNeoPixels
 
 A lightweight library to control NeoPixels using an easy-to-use interface.
 This library wraps around `Adafruit_NeoPixel`, providing simple methods to control individual and groups of pixels with ease.
