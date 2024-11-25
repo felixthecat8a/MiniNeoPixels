@@ -1,4 +1,15 @@
+![GitHub Release](https://img.shields.io/github/v/release/felixthecat8a/MiniNeoPixels)
 [![License: MIT](https://img.shields.io/github/license/felixthecat8a/MiniNeoPixels)](https://opensource.org/licenses/MIT)
+![GitHub top language](https://img.shields.io/github/languages/top/felixthecat8a/MiniNeoPixels)
+![GitHub repo size](https://img.shields.io/github/repo-size/felixthecat8a/MiniNeoPixels)
+![GitHub Release Date](https://img.shields.io/github/release-date/felixthecat8a/MiniNeoPixels)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/felixthecat8a/MiniNeoPixels/total)
+
+![GitHub Created At](https://img.shields.io/github/created-at/felixthecat8a/MiniNeoPixels)
+![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/felixthecat8a/MiniNeoPixels)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/felixthecat8a/MiniNeoPixels)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/felixthecat8a/MiniNeoPixels)
+
 
 # MiniNeoPixels
 
