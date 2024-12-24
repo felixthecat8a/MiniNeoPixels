@@ -8,7 +8,7 @@
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-#include "MiniNeoPixels.h"
+#include <MiniNeoPixels.h>
 #define PIXEL_PIN 3 // input pin Neopixel is attached to
 #define PIXEL_COUNT 10 // number of neopixels in strip
 MiniNeoPixels pixels(PIXEL_PIN, PIXEL_COUNT);
