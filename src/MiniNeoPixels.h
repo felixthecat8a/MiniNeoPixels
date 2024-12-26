@@ -138,6 +138,12 @@ public:
   void purple(int num) {
     colorOne(num,127,0,255);
   }
+  void violet() {
+    colorAll(127,0,255);
+  }
+  void violet(int num) {
+    colorOne(num,127,0,255);
+  }
   void magenta() {
     colorAll(255,0,255);
   }
