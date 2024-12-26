@@ -51,6 +51,9 @@ public:
   void brightness(int brightness) {
     adjustBrightness(brightness);
   }
+  void off(int red, int green, int blue) {
+    colorAll(0, 0, 0);
+  }
   void pink() {
     colorAll(255,0,127);
   }
