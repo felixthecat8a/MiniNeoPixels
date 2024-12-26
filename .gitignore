@@ -31,5 +31,5 @@ Thumbs.db
 /build
 
 # Prototyping file
-src.ino
+MiniNeoPixels.ino
 notes.md
