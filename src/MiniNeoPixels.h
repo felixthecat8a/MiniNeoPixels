@@ -39,6 +39,24 @@ public:
       neopixels.show();
     }
   }
+  int color(int red, int green, int blue) {
+    return neopixels.Color(red, green, blue);
+  }
+  int colorHSV(int hue, int sat, int val){
+    return neopixels.ColorHSV(hue, sat, val);
+  }
+  void setPixelColor(int num, int color) {
+    neopixels.setPixelColor(num, color);
+  }
+  void setPixelColor(int num, int red, int green, int blue) {
+    neopixels.setPixelColor(num, red, green, blue);
+  }
+  void setPixelColor(int num, int red, int green, int blue, int white) {
+    neopixels.setPixelColor(num, red, green, blue, white);
+  }
+  void show() {
+    neopixels.show();
+  }
   void clear() {
     neopixels.clear();
   }
