@@ -14,6 +14,9 @@ public:
   MiniNeoPixels(int pin,int count):neopixels(count, pin, NEO_GRB + NEO_KHZ800) {
     _count = count; // number of pixels
   }
+  MiniNeoPixels(int pin,int count, neoPixelType t):neopixels(count, pin, t) {
+    _count = count; // number of pixels
+  }
   void begin() {
     neopixels.begin();
   }
