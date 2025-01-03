@@ -1,6 +1,6 @@
 /**
  * MiniNeoPixelsExample.ino
- * 
+ *
  * This sketch will flash different colors on the strip and display the color name.
 */
 

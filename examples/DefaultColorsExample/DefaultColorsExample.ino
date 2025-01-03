@@ -1,6 +1,6 @@
 /**
  * DefaultColorsExample.ino
- * 
+ *
  * This sketch will flash through the default colors on the strip.
 */
 

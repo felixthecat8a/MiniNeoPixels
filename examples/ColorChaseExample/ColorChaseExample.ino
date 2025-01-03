@@ -1,6 +1,6 @@
 /**
  * ColorChaseExample.ino
- * 
+ *
  * This sketch will sweep different colors across the strip and display the color name.
 */
 
