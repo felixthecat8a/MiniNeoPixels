@@ -45,6 +45,12 @@ public:
       neopixels.show();
     }
   }
+  void colorOne(int num, int color) {
+    if (num >= 0 && num < _count) {
+      neopixels.setPixelColor(num, color);
+      neopixels.show();
+    }
+  }
   int color(int red, int green, int blue) {
     return neopixels.Color(red, green, blue);
   }
