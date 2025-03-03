@@ -42,8 +42,11 @@ public:
   int color(int red, int green, int blue) {
     return neopixels.Color(red, green, blue);
   }
-  int colorHSV(int hue, int sat, int val){
+  int colorHSV(int hue, int sat, int val) {
     return neopixels.ColorHSV(hue, sat, val);
+  }
+  int colorHSV(int hue) {
+    return neopixels.ColorHSV(hue);
   }
   void setPixelColor(int num, int color) {
     neopixels.setPixelColor(num, color);
@@ -71,6 +74,9 @@ public:
   }
   void off() {
     colorAll(0, 0, 0);
+  }
+  void hsv(int hue, int sat = 255, int val = 255) {
+    neopixels.fill(neopixels.ColorHSV(hue, sat, val));
   }
   void pink() {
     colorAll(255,0,127);
@@ -133,10 +139,10 @@ public:
     colorOne(num,0,0,255);
   }
   void purple() {
-    colorAll(127,0,255);
+    colorAll(127,0,128);
   }
   void purple(int num) {
-    colorOne(num,127,0,255);
+    colorOne(num,127,0,128);
   }
   void violet() {
     colorAll(127,0,255);
