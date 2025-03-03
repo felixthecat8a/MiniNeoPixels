@@ -33,6 +33,12 @@ public:
     }
     neopixels.show();
   }
+  void colorAll(int color) {
+    for (int i = 0; i < _count; i++) {
+      neopixels.setPixelColor(i, color);
+    }
+    neopixels.show();
+  }
   void colorOne(int num, int red, int green, int blue) {
     if (num >= 0 && num < _count) {
       neopixels.setPixelColor(num, red, green, blue);
@@ -76,7 +82,7 @@ public:
     colorAll(0, 0, 0);
   }
   void hsv(int hue, int sat = 255, int val = 255) {
-    neopixels.fill(neopixels.ColorHSV(hue, sat, val));
+    colorAll(colorHSV(hue, sat, val));
   }
   void pink() {
     colorAll(255,0,127);
