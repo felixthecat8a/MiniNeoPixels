@@ -82,7 +82,9 @@ public:
   void off() {
     colorAll(0, 0, 0);
   }
-  void hsv(int hue, int sat = 255, int val = 255) {
+  void hsv(int deg, int sat = 255, int val = 255) {
+    deg = constrain(deg, 0, 360);
+    int hue = map(deg, 0, 360, 0, 65535);
     colorAll(colorHSV(hue, sat, val));
   }
   void pink() {
