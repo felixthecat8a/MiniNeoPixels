@@ -49,6 +49,7 @@ public:
     return neopixels.Color(red, green, blue);
   }
   int colorHSV(int hue, int sat, int val) {
+    // hue can be a value from 0 to 65535
     return neopixels.ColorHSV(hue, sat, val);
   }
   int colorHSV(int hue) {
