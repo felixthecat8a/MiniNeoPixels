@@ -171,18 +171,6 @@ public:
   void magenta(int num) {
     colorOne(num,255,0,255);
   }
-  void swipe(int red, int green, int blue) {
-    for (int i = 0; i < _count; i++) {
-      neopixels.setPixelColor(i, red, green, blue);
-      neopixels.show();
-    }
-  }
-  void swipe(int color) {
-    for (int i = 0; i < _count; i++) {
-      neopixels.setPixelColor(i, color);
-      neopixels.show();
-    }
-  }
 };
 
 #endif
