@@ -24,42 +24,11 @@ public:
     neopixels.begin();
     neopixels.setBrightness(brightness);
   }
-  void adjustBrightness(int brightness) {
+  void brightness(int brightness) {
     neopixels.setBrightness(brightness);
-  }
-  void colorAll(int red, int green, int blue) {
-    for (int i = 0; i < _count; i++) {
-      neopixels.setPixelColor(i, red, green, blue);
-    }
-    neopixels.show();
-  }
-  void colorAll(int color) {
-    for (int i = 0; i < _count; i++) {
-      neopixels.setPixelColor(i, color);
-    }
-    neopixels.show();
-  }
-  void colorOne(int num, int red, int green, int blue) {
-    if (num >= 0 && num < _count) {
-      neopixels.setPixelColor(num, red, green, blue);
-      neopixels.show();
-    }
-  }
-  void colorOne(int num, int color) {
-    if (num >= 0 && num < _count) {
-      neopixels.setPixelColor(num, color);
-      neopixels.show();
-    }
   }
   int color(int red, int green, int blue) {
     return neopixels.Color(red, green, blue);
-  }
-  int colorHSV(int hue, int sat, int val) {
-    // hue can be a value from 0 to 65535
-    return neopixels.ColorHSV(hue, sat, val);
-  }
-  int colorHSV(int hue) {
-    return neopixels.ColorHSV(hue);
   }
   void setPixelColor(int num, int color) {
     neopixels.setPixelColor(num, color);
@@ -77,99 +46,129 @@ public:
     neopixels.clear();
   }
   void all(int red, int green, int blue) {
-    colorAll(red, green, blue);
+    for (int i = 0; i < _count; i++) {
+      neopixels.setPixelColor(i, color(red, green, blue));
+    }
+    neopixels.show();
+  }
+  void all(int color) {
+    for (int i = 0; i < _count; i++) {
+      neopixels.setPixelColor(i, color);
+    }
+    neopixels.show();
   }
   void one(int num, int red, int green, int blue) {
-    colorOne(num, red, green, blue);
+    if (num >= 0 && num < _count) {
+      neopixels.setPixelColor(num, color(red, green, blue));
+      neopixels.show();
+    }
   }
-  void brightness(int brightness) {
-    adjustBrightness(brightness);
+  void one(int num, int color) {
+    if (num >= 0 && num < _count) {
+      neopixels.setPixelColor(num, color);
+      neopixels.show();
+    }
+  }
+  void hsv(int deg, int sat, int val) {
+    deg = constrain(deg, 0, 360);
+    sat = constrain(sat, 0, 255);
+    val = constrain(val, 0, 255);
+    int hue = map(deg, 0, 360, 0, 65535);
+    all(neopixels.ColorHSV(hue, sat, val));
+  }
+  void hsv(int num, int deg, int sat, int val) {
+    deg = constrain(deg, 0, 360);
+    sat = constrain(sat, 0, 255);
+    val = constrain(val, 0, 255);
+    int hue = map(deg, 0, 360, 0, 65535);
+    one(num, neopixels.ColorHSV(hue, sat, val));
   }
   void off() {
-    colorAll(0, 0, 0);
+    all(0, 0, 0);
   }
-  void hsv(int deg, int sat = 255, int val = 255) {
-    deg = constrain(deg, 0, 360);
-    int hue = map(deg, 0, 360, 0, 65535);
-    colorAll(colorHSV(hue, sat, val));
+  void white() {
+    all(255,255,255);
+  }
+  void white(int num) {
+    one(num,255,255,255);
   }
   void pink() {
-    colorAll(255,0,127);
+    all(255,0,127);
   }
   void pink(int num) {
-    colorOne(num,255,0,127);
+    one(num,255,0,127);
   }
   void red() {
-    colorAll(255,0,0);
+    all(255,0,0);
   }
   void red(int num) {
-    colorOne(num,255,0,0);
+    one(num,255,0,0);
   }
   void orange() {
-    colorAll(255,127,0);
+    all(255,127,0);
   }
   void orange(int num) {
-    colorOne(num,255,127,0);
+    one(num,255,127,0);
   }
   void yellow() {
-    colorAll(255,255,0);
+    all(255,255,0);
   }
   void yellow(int num) {
-    colorOne(num,255,255,0);
+    one(num,255,255,0);
   }
   void lime() {
-    colorAll(127,255,0);
+    all(127,255,0);
   }
   void lime(int num) {
-    colorOne(num,127,255,0);
+    one(num,127,255,0);
   }
   void green() {
-    colorAll(0,255,0);
+    all(0,255,0);
   }
   void green(int num) {
-    colorOne(num,0,255,0);
+    one(num,0,255,0);
   }
   void teal() {
-    colorAll(0,255,127);
+    all(0,255,127);
   }
   void teal(int num) {
-    colorOne(num,0,255,127);
+    one(num,0,255,127);
   }
   void cyan() {
-    colorAll(0,255,255);
+    all(0,255,255);
   }
   void cyan(int num) {
-    colorOne(num,0,255,255);
+    one(num,0,255,255);
   }
   void sky() {
-    colorAll(0,127,255);
+    all(0,127,255);
   }
   void sky(int num) {
-    colorOne(num,0,127,255);
+    one(num,0,127,255);
   }
   void blue() {
-    colorAll(0,0,255);
+    all(0,0,255);
   }
   void blue(int num) {
-    colorOne(num,0,0,255);
+    one(num,0,0,255);
   }
   void purple() {
-    colorAll(127,0,128);
+    all(127,0,128);
   }
   void purple(int num) {
-    colorOne(num,127,0,128);
+    one(num,127,0,128);
   }
   void violet() {
-    colorAll(127,0,255);
+    all(127,0,255);
   }
   void violet(int num) {
-    colorOne(num,127,0,255);
+    one(num,127,0,255);
   }
   void magenta() {
-    colorAll(255,0,255);
+    all(255,0,255);
   }
   void magenta(int num) {
-    colorOne(num,255,0,255);
+    one(num,255,0,255);
   }
 };
 
