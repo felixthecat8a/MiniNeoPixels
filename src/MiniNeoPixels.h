@@ -4,6 +4,7 @@
 
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
+#include "MiniNeoPixelColors.h"
 
 class MiniNeoPixels {
 private:
@@ -57,6 +58,12 @@ public:
     }
     neopixels.show();
   }
+  void all(const MiniRGB& rgb) {
+    for (int i = 0; i < _count; i++) {
+      neopixels.setPixelColor(i, color(rgb.r, rgb.g, rgb.b));
+    }
+    neopixels.show();
+  }
   void one(int num, int red, int green, int blue) {
     if (num >= 0 && num < _count) {
       neopixels.setPixelColor(num, color(red, green, blue));
@@ -66,6 +73,12 @@ public:
   void one(int num, int color) {
     if (num >= 0 && num < _count) {
       neopixels.setPixelColor(num, color);
+      neopixels.show();
+    }
+  }
+  void one(int num, const MiniRGB& rgb) {
+    if (num >= 0 && num < _count) {
+      neopixels.setPixelColor(num, color(rgb.r, rgb.g, rgb.b));
       neopixels.show();
     }
   }
@@ -84,91 +97,91 @@ public:
     one(num, neopixels.ColorHSV(hue, sat, val));
   }
   void off() {
-    all(0, 0, 0);
+    all(MiniNeoPixelColors::BLACK);
   }
   void white() {
-    all(255,255,255);
+    all(MiniNeoPixelColors::WHITE);
   }
   void white(int num) {
-    one(num,255,255,255);
+    one(num,MiniNeoPixelColors::WHITE);
   }
   void pink() {
-    all(255,0,127);
+    all(MiniNeoPixelColors::HOTPINK);
   }
   void pink(int num) {
-    one(num,255,0,127);
+    one(num,MiniNeoPixelColors::HOTPINK);
   }
   void red() {
-    all(255,0,0);
+    all(MiniNeoPixelColors::RED);
   }
   void red(int num) {
-    one(num,255,0,0);
+    one(num,MiniNeoPixelColors::RED);
   }
   void orange() {
-    all(255,127,0);
+    all(MiniNeoPixelColors::ORANGE);
   }
   void orange(int num) {
-    one(num,255,127,0);
+    one(num,MiniNeoPixelColors::ORANGE);
   }
   void yellow() {
-    all(255,255,0);
+    all(MiniNeoPixelColors::YELLOW);
   }
   void yellow(int num) {
-    one(num,255,255,0);
+    one(num,MiniNeoPixelColors::YELLOW);
   }
   void lime() {
-    all(127,255,0);
+    all(MiniNeoPixelColors::LIME);
   }
   void lime(int num) {
-    one(num,127,255,0);
+    one(num,MiniNeoPixelColors::LIME);
   }
   void green() {
-    all(0,255,0);
+    all(MiniNeoPixelColors::GREEN);
   }
   void green(int num) {
-    one(num,0,255,0);
+    one(num,MiniNeoPixelColors::GREEN);
   }
   void teal() {
-    all(0,255,127);
+    all(MiniNeoPixelColors::TEAL);
   }
   void teal(int num) {
-    one(num,0,255,127);
+    one(num,MiniNeoPixelColors::TEAL);
   }
   void cyan() {
-    all(0,255,255);
+    all(MiniNeoPixelColors::CYAN);
   }
   void cyan(int num) {
-    one(num,0,255,255);
+    one(num,MiniNeoPixelColors::CYAN);
   }
   void sky() {
-    all(0,127,255);
+    all(MiniNeoPixelColors::SKY);
   }
   void sky(int num) {
-    one(num,0,127,255);
+    one(num,MiniNeoPixelColors::SKY);
   }
   void blue() {
-    all(0,0,255);
+    all(MiniNeoPixelColors::BLUE);
   }
   void blue(int num) {
-    one(num,0,0,255);
+    one(num,MiniNeoPixelColors::BLUE);
   }
   void purple() {
-    all(127,0,128);
+    all(128,0,128);
   }
   void purple(int num) {
-    one(num,127,0,128);
+    one(num,128,0,128);
   }
   void violet() {
-    all(127,0,255);
+    all(MiniNeoPixelColors::VIOLET);
   }
   void violet(int num) {
-    one(num,127,0,255);
+    one(num,MiniNeoPixelColors::VIOLET);
   }
   void magenta() {
-    all(255,0,255);
+    all(MiniNeoPixelColors::MAGENTA);
   }
   void magenta(int num) {
-    one(num,255,0,255);
+    one(num,MiniNeoPixelColors::MAGENTA);
   }
 };
 
