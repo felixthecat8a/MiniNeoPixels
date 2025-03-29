@@ -4,6 +4,7 @@
 
 # Datatypes (KEYWORD1)
 MiniNeoPixels   KEYWORD1
+MiniNeoPixelColors   KEYWORD1
 Adafruit_NeoPixel   KEYWORD1
 
 # Methods and Functions (KEYWORD2)
