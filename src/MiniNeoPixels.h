@@ -25,10 +25,13 @@ public:
     neopixels.begin();
     neopixels.setBrightness(brightness);
   }
+  int count() const {
+    return _count;
+  }
   void brightness(int brightness) {
     neopixels.setBrightness(brightness);
   }
-  int color(int red, int green, int blue) {
+  int color(int red, int green, int blue) const {
     return neopixels.Color(red, green, blue);
   }
   void setPixelColor(int num, int color) {
