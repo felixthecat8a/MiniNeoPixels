@@ -1,6 +1,7 @@
 /**
  * @file MiniNeoPixels.h
  * @brief A lightweight wrapper class around Adafruit_NeoPixel for easier usage with common colors.
+ * Depends on: Adafruit_NeoPixel, MiniNeoPixelColors.h
  */
 
 #ifndef MININEOPIXELS_H
@@ -60,10 +61,42 @@ public:
    * @param blue Blue component (0–255).
    * @return Encoded 32-bit color.
    */
-  int color(int red, int green, int blue) const;
+  uint32_t color(int red, int green, int blue) const;
 
+  /**
+   * @brief Convert RGB values to NeoPixel color format.
+   * @param red Red component (0–255).
+   * @param green Green component (0–255).
+   * @param blue Blue component (0–255).
+   * @param white White component (0–255).
+   * @return Encoded 32-bit color.
+   */
+  uint32_t color(int red, int green, int blue, int white) const;
+
+  /**
+   * @brief Set a pixel color using an encoded 32-bit value.
+   * @param num Pixel index.
+   * @param color Encoded 32-bit color.
+   */
   void setPixelColor(int num, int color);
+
+  /**
+   * @brief Set a pixel color using RGB values.
+   * @param num Pixel index.
+   * @param red Red (0–255).
+   * @param green Green (0–255).
+   * @param blue Blue (0–255).
+   */
   void setPixelColor(int num, int red, int green, int blue);
+
+  /**
+   * @brief Set a pixel color using RGBW values.
+   * @param num Pixel index.
+   * @param red Red (0–255).
+   * @param green Green (0–255).
+   * @param blue Blue (0–255).
+   * @param white White (0–255).
+   */
   void setPixelColor(int num, int red, int green, int blue, int white);
 
   /** @brief Push pixel data to the LED strip. */

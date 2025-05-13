@@ -9,17 +9,17 @@ Adafruit_NeoPixel   KEYWORD1
 
 # Methods and Functions (KEYWORD2)
 begin   KEYWORD2
-adjustBrightness  KEYWORD2
-colorAll	KEYWORD2
-colorOne	KEYWORD2
+count   KEYWORD2
+brightness  KEYWORD2
 all KEYWORD2
 one KEYWORD2
 color   KEYWORD2
-colorHSV    KEYWORD2
+hsv    KEYWORD2
 setPixelColor   KEYWORD2
 show    KEYWORD2
 clear   KEYWORD2
 off KEYWORD2
+white   KEYWORD2
 pink    KEYWORD2
 red KEYWORD2
 orange  KEYWORD2

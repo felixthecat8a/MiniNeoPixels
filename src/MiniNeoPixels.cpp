@@ -23,11 +23,16 @@ int MiniNeoPixels::count() const {
 }
 
 void MiniNeoPixels::brightness(int brightness) {
+  brightness = constrain(brightness, 0, 255);
   neopixels.setBrightness(brightness);
 }
 
-int MiniNeoPixels::color(int red, int green, int blue) const {
+uint32_t  MiniNeoPixels::color(int red, int green, int blue) const {
   return neopixels.Color(red, green, blue);
+}
+
+uint32_t  MiniNeoPixels::color(int red, int green, int blue, int white) const {
+  return neopixels.Color(red, green, blue, white);
 }
 
 void MiniNeoPixels::setPixelColor(int num, int color) {
@@ -96,7 +101,7 @@ void MiniNeoPixels::hsv(int deg, int sat, int val) {
   deg = constrain(deg, 0, 359);
   sat = constrain(sat, 0, 255);
   val = constrain(val, 0, 255);
-  int hue = map(deg, 0, 359, 0, 65535);
+  long hue = (long)deg * 65535 / 360;
   all(neopixels.ColorHSV(hue, sat, val));
 }
 
@@ -104,7 +109,7 @@ void MiniNeoPixels::hsv(int num, int deg, int sat, int val) {
   deg = constrain(deg, 0, 359);
   sat = constrain(sat, 0, 255);
   val = constrain(val, 0, 255);
-  int hue = map(deg, 0, 359, 0, 65535);
+  long hue = (long)deg * 65535 / 360;
   one(num, neopixels.ColorHSV(hue, sat, val));
 }
 
