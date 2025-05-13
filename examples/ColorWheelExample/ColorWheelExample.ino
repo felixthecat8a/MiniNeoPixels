@@ -18,7 +18,7 @@ void setup() {
 
 void loop() {
   for (int hue = 1; hue <= 360; hue++) {
-    pixels.hsv(hue);
+    pixels.hsv(hue, 255, 255);
     delay(50);
   }
 }

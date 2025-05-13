@@ -1,7 +1,8 @@
 /**
  * ColorChaseExample.ino
  *
- * This sketch will sweep different colors across the strip and display the color name.
+ * This sketch will sweep different colors across the strip and display the color name
+ * on an LCD module.
 */
 
 #include <LiquidCrystal.h>

@@ -1,4 +1,8 @@
-// MiniNeoPixels.h
+/**
+ * @file MiniNeoPixels.h
+ * @brief A lightweight wrapper class around Adafruit_NeoPixel for easier usage with common colors.
+ */
+
 #ifndef MININEOPIXELS_H
 #define MININEOPIXELS_H
 
@@ -6,186 +10,118 @@
 #include <Adafruit_NeoPixel.h>
 #include "MiniNeoPixelColors.h"
 
+/**
+ * @class MiniNeoPixels
+ * @brief Simplified interface for controlling NeoPixel LED strips.
+ */
 class MiniNeoPixels {
 private:
   Adafruit_NeoPixel neopixels;
-  int _count;
+  int _count; ///< Number of NeoPixels
 
 public:
-  MiniNeoPixels(int pin,int count):neopixels(count, pin, NEO_GRB + NEO_KHZ800) {
-    _count = count; // number of pixels
-  }
-  MiniNeoPixels(int pin,int count, neoPixelType t):neopixels(count, pin, t) {
-    _count = count; // number of pixels
-  }
-  void begin() {
-    neopixels.begin();
-  }
-  void begin(int brightness) {
-    neopixels.begin();
-    neopixels.setBrightness(brightness);
-  }
-  int count() const {
-    return _count;
-  }
-  void brightness(int brightness) {
-    neopixels.setBrightness(brightness);
-  }
-  int color(int red, int green, int blue) const {
-    return neopixels.Color(red, green, blue);
-  }
-  void setPixelColor(int num, int color) {
-    neopixels.setPixelColor(num, color);
-  }
-  void setPixelColor(int num, int red, int green, int blue) {
-    neopixels.setPixelColor(num, red, green, blue);
-  }
-  void setPixelColor(int num, int red, int green, int blue, int white) {
-    neopixels.setPixelColor(num, red, green, blue, white);
-  }
-  void show() {
-    neopixels.show();
-  }
-  void clear() {
-    neopixels.clear();
-  }
-  void all(int red, int green, int blue) {
-    for (int i = 0; i < _count; i++) {
-      neopixels.setPixelColor(i, color(red, green, blue));
-    }
-    neopixels.show();
-  }
-  void all(int color) {
-    for (int i = 0; i < _count; i++) {
-      neopixels.setPixelColor(i, color);
-    }
-    neopixels.show();
-  }
-  void all(const MiniRGB& rgb) {
-    for (int i = 0; i < _count; i++) {
-      neopixels.setPixelColor(i, color(rgb.r, rgb.g, rgb.b));
-    }
-    neopixels.show();
-  }
-  void one(int num, int red, int green, int blue) {
-    if (num >= 0 && num < _count) {
-      neopixels.setPixelColor(num, color(red, green, blue));
-      neopixels.show();
-    }
-  }
-  void one(int num, int color) {
-    if (num >= 0 && num < _count) {
-      neopixels.setPixelColor(num, color);
-      neopixels.show();
-    }
-  }
-  void one(int num, const MiniRGB& rgb) {
-    if (num >= 0 && num < _count) {
-      neopixels.setPixelColor(num, color(rgb.r, rgb.g, rgb.b));
-      neopixels.show();
-    }
-  }
-  void hsv(int deg, int sat, int val) {
-    deg = constrain(deg, 0, 360);
-    sat = constrain(sat, 0, 255);
-    val = constrain(val, 0, 255);
-    int hue = map(deg, 0, 360, 0, 65535);
-    all(neopixels.ColorHSV(hue, sat, val));
-  }
-  void hsv(int num, int deg, int sat, int val) {
-    deg = constrain(deg, 0, 360);
-    sat = constrain(sat, 0, 255);
-    val = constrain(val, 0, 255);
-    int hue = map(deg, 0, 360, 0, 65535);
-    one(num, neopixels.ColorHSV(hue, sat, val));
-  }
-  void off() {
-    all(MiniNeoPixelColors::BLACK);
-  }
-  void white() {
-    all(MiniNeoPixelColors::WHITE);
-  }
-  void white(int num) {
-    one(num,MiniNeoPixelColors::WHITE);
-  }
-  void pink() {
-    all(MiniNeoPixelColors::HOTPINK);
-  }
-  void pink(int num) {
-    one(num,MiniNeoPixelColors::HOTPINK);
-  }
-  void red() {
-    all(MiniNeoPixelColors::RED);
-  }
-  void red(int num) {
-    one(num,MiniNeoPixelColors::RED);
-  }
-  void orange() {
-    all(MiniNeoPixelColors::ORANGE);
-  }
-  void orange(int num) {
-    one(num,MiniNeoPixelColors::ORANGE);
-  }
-  void yellow() {
-    all(MiniNeoPixelColors::YELLOW);
-  }
-  void yellow(int num) {
-    one(num,MiniNeoPixelColors::YELLOW);
-  }
-  void lime() {
-    all(MiniNeoPixelColors::LIME);
-  }
-  void lime(int num) {
-    one(num,MiniNeoPixelColors::LIME);
-  }
-  void green() {
-    all(MiniNeoPixelColors::GREEN);
-  }
-  void green(int num) {
-    one(num,MiniNeoPixelColors::GREEN);
-  }
-  void teal() {
-    all(MiniNeoPixelColors::TEAL);
-  }
-  void teal(int num) {
-    one(num,MiniNeoPixelColors::TEAL);
-  }
-  void cyan() {
-    all(MiniNeoPixelColors::CYAN);
-  }
-  void cyan(int num) {
-    one(num,MiniNeoPixelColors::CYAN);
-  }
-  void sky() {
-    all(MiniNeoPixelColors::SKY);
-  }
-  void sky(int num) {
-    one(num,MiniNeoPixelColors::SKY);
-  }
-  void blue() {
-    all(MiniNeoPixelColors::BLUE);
-  }
-  void blue(int num) {
-    one(num,MiniNeoPixelColors::BLUE);
-  }
-  void purple() {
-    all(128,0,128);
-  }
-  void purple(int num) {
-    one(num,128,0,128);
-  }
-  void violet() {
-    all(MiniNeoPixelColors::VIOLET);
-  }
-  void violet(int num) {
-    one(num,MiniNeoPixelColors::VIOLET);
-  }
-  void magenta() {
-    all(MiniNeoPixelColors::MAGENTA);
-  }
-  void magenta(int num) {
-    one(num,MiniNeoPixelColors::MAGENTA);
-  }
+  /**
+   * @brief Construct with default NeoPixel type (NEO_GRB + NEO_KHZ800).
+   * @param pin The GPIO pin connected to the NeoPixel strip.
+   * @param count Number of pixels in the strip.
+   */
+  MiniNeoPixels(int pin, int count);
+
+  /**
+   * @brief Construct with specified NeoPixel type.
+   * @param pin The GPIO pin connected to the NeoPixel strip.
+   * @param count Number of pixels in the strip.
+   * @param t Pixel type (e.g., NEO_GRB + NEO_KHZ800).
+   */
+  MiniNeoPixels(int pin, int count, neoPixelType t);
+
+  /** @brief Initialize the NeoPixel strip. */
+  void begin();
+
+  /**
+   * @brief Initialize and set brightness.
+   * @param brightness Brightness value (0–255).
+   */
+  void begin(int brightness);
+
+  /** @brief Get the number of pixels. */
+  int count() const;
+
+  /**
+   * @brief Set brightness level.
+   * @param brightness Brightness (0–255).
+   */
+  void brightness(int brightness);
+
+  /**
+   * @brief Convert RGB values to NeoPixel color format.
+   * @param red Red component (0–255).
+   * @param green Green component (0–255).
+   * @param blue Blue component (0–255).
+   * @return Encoded 32-bit color.
+   */
+  int color(int red, int green, int blue) const;
+
+  void setPixelColor(int num, int color);
+  void setPixelColor(int num, int red, int green, int blue);
+  void setPixelColor(int num, int red, int green, int blue, int white);
+
+  /** @brief Push pixel data to the LED strip. */
+  void show();
+
+  /** @brief Clear all pixel colors. */
+  void clear();
+
+  void all(int red, int green, int blue);
+  void all(int color);
+  void all(const MiniRGB& rgb);
+
+  void one(int num, int red, int green, int blue);
+  void one(int num, int color);
+  void one(int num, const MiniRGB& rgb);
+
+  /**
+   * @brief Fill strip with an HSV color.
+   * @param deg Hue degree (0–360).
+   * @param sat Saturation (0–255).
+   * @param val Value/Brightness (0–255).
+   */
+  void hsv(int deg, int sat, int val);
+
+  /**
+   * @brief Set a pixel to an HSV color.
+   * @param num Pixel index.
+   * @param deg Hue degree (0–360).
+   * @param sat Saturation (0–255).
+   * @param val Value/Brightness (0–255).
+   */
+  void hsv(int num, int deg, int sat, int val);
+
+  /** @brief Turn off all pixels. */
+  void off();
+
+  /** @brief Set all pixels to white. */
+  void white();
+
+  /** @brief Set one pixel to white. */
+  void white(int num);
+
+  // @name color Setter Methods (all and individual pixel variants)
+  /// @{
+  void pink();     void pink(int num);
+  void red();      void red(int num);
+  void orange();   void orange(int num);
+  void yellow();   void yellow(int num);
+  void lime();     void lime(int num);
+  void green();    void green(int num);
+  void teal();     void teal(int num);
+  void cyan();     void cyan(int num);
+  void sky();      void sky(int num);
+  void blue();     void blue(int num);
+  void purple();   void purple(int num);
+  void violet();   void violet(int num);
+  void magenta();  void magenta(int num);
+  /// @}
 };
 
-#endif
+#endif // MININEOPIXELS_H
