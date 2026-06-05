@@ -1,63 +1,80 @@
 #include "MiniNeoPixels.h"
 
 MiniNeoPixel::MiniNeoPixel(Adafruit_NeoPixel* s) {
-  strip = s;
+  _strip = s;
 }
 
 void MiniNeoPixel::set(uint16_t i, uint8_t r, uint8_t g, uint8_t b) {
-  strip->setPixelColor(i, strip->Color(r, g, b));
+  _strip->setPixelColor(i, _strip->Color(r, g, b));
 }
 
 void MiniNeoPixel::show() {
-  strip->show();
+  _strip->show();
 }
 
 void MiniNeoPixel::all(uint32_t color) {
-  strip->fill(color);
-  strip->show();
+  _strip->fill(color);
+  _strip->show();
 }
 
 void MiniNeoPixel::all(uint8_t r, uint8_t g, uint8_t b) {
-  strip->fill(strip->Color(r, g, b));
-  strip->show();
+  _strip->fill(_strip->Color(r, g, b));
+  _strip->show();
 }
 
 void MiniNeoPixel::one(uint16_t i, uint8_t r, uint8_t g, uint8_t b) {
-  strip->setPixelColor(i, strip->Color(r, g, b));
-  strip->show();
+  _strip->setPixelColor(i, _strip->Color(r, g, b));
+  _strip->show();
+}
+
+void MiniNeoPixel::brightness(uint8_t b) {
+  _strip->setBrightness(b);
+  _strip->show();
 }
 
 void MiniNeoPixel::off() {
-  strip->clear();
-  strip->show();
+  _strip->clear();
+  _strip->show();
+}
+
+void MiniNeoPixel::allWhite() {
+  _strip->fill(_strip->Color(255, 255, 255));
+  _strip->show();
 }
 
 void MiniNeoPixel::allRed() {
-  strip->fill(strip->Color(255, 0, 0));
-  strip->show();
+  _strip->fill(_strip->Color(255, 0, 0));
+  _strip->show();
 }
 
 void MiniNeoPixel::allYellow() {
-  strip->fill(strip->Color(255, 255, 0));
-  strip->show();
+  _strip->fill(_strip->Color(255, 255, 0));
+  _strip->show();
 }
 
 void MiniNeoPixel::allGreen() {
-  strip->fill(strip->Color(0, 255, 0));
-  strip->show();
+  _strip->fill(_strip->Color(0, 255, 0));
+  _strip->show();
 }
 
 void MiniNeoPixel::allCyan() {
-  strip->fill(strip->Color(0, 255, 255));
-  strip->show();
+  _strip->fill(_strip->Color(0, 255, 255));
+  _strip->show();
 }
 
 void MiniNeoPixel::allBlue() {
-  strip->fill(strip->Color(0, 0, 255));
-  strip->show();
+  _strip->fill(_strip->Color(0, 0, 255));
+  _strip->show();
 }
 
 void MiniNeoPixel::allMagenta() {
-  strip->fill(strip->Color(255, 0, 255));
-  strip->show();
+  _strip->fill(_strip->Color(255, 0, 255));
+  _strip->show();
+}
+
+void MiniNeoPixel::hue(uint16_t hue) {
+  for (uint16_t i = 0; i < _strip->numPixels(); i++) {
+    _strip->setPixelColor(i, _strip->ColorHSV(hue));
+  }
+  _strip->show();
 }
