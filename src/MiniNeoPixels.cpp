@@ -4,6 +4,11 @@ MiniNeoPixel::MiniNeoPixel(Adafruit_NeoPixel* strip) {
   _strip = strip;
 }
 
+void MiniNeoPixel::setup() {
+  _strip->begin();
+  _strip->show();
+}
+
 void MiniNeoPixel::set(uint16_t i, uint8_t r, uint8_t g, uint8_t b) {
   _strip->setPixelColor(i, _strip->Color(r, g, b));
 }
