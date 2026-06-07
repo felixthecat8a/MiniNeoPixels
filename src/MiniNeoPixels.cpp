@@ -44,6 +44,11 @@ void MiniNeoPixel::one(uint16_t i, uint32_t color) {
   _strip->show();
 }
 
+void MiniNeoPixel::off() {
+  _strip->clear();
+  _strip->show();
+}
+
 void MiniNeoPixel::brightness(uint8_t b) {
   _strip->setBrightness(b);
   _strip->show();

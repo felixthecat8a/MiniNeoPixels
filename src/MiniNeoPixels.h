@@ -24,6 +24,8 @@ class MiniNeoPixel {
     void one(uint16_t i, uint8_t r, uint8_t g, uint8_t b);
     void one(uint16_t i, uint32_t color);
 
+    void off();
+
     void brightness(uint8_t b);
 
     void hue(uint16_t hue);
