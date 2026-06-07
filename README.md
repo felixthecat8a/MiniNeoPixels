@@ -14,7 +14,6 @@ A lightweight library that wraps around Adafruit_NeoPixel to provide simple meth
 ```cpp
 #include <Adafruit_NeoPixel.h>
 #include <MiniNeoPixels.h>
-#include <MiniColor.h>
 
 #define DATAPIN 6
 #define NUMPIXELS 20
