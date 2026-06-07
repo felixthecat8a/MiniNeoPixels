@@ -15,15 +15,16 @@ A lightweight library that wraps around Adafruit_NeoPixel to provide simple meth
 #include <Adafruit_NeoPixel.h>
 #include <MiniNeoPixels.h>
 
-#define DATAPIN 6
-#define NUMPIXELS 20
+#define DATA_PIN 6
+#define NUM_PIXELS 20
 
-Adafruit_NeoPixel strip(NUMPIXELS, DATAPIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip(NUM_PIXELS, DATA_PIN, NEO_GRB + NEO_KHZ800);
 MiniNeoPixel mini(&strip);
 
+#define LED_BRIGHTNESS 33
+
 void setup() {
-  strip.begin();
-  mini.brightness(33);
+  mini.setup(LED_BRIGHTNESS);
 }
 
 void loop() {
