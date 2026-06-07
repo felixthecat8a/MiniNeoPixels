@@ -9,25 +9,20 @@ class MiniNeoPixel {
     Adafruit_NeoPixel* _strip;
 
   public:
-    MiniNeoPixel(Adafruit_NeoPixel* s);
+    MiniNeoPixel(Adafruit_NeoPixel* strip);
 
     void set(uint16_t i, uint8_t r, uint8_t g, uint8_t b);
+    void set(uint16_t i, uint32_t color);
+    void set(uint8_t r, uint8_t g, uint8_t b);
+    void set(uint32_t color);
     void show();
-    void all(uint32_t color);
+
     void all(uint8_t r, uint8_t g, uint8_t b);
+    void all(uint32_t color);
     void one(uint16_t i, uint8_t r, uint8_t g, uint8_t b);
+    void one(uint16_t i, uint32_t color);
 
     void brightness(uint8_t b);
-
-    void off();
-
-    void allWhite();
-    void allRed();
-    void allYellow();
-    void allGreen();
-    void allCyan();
-    void allBlue();
-    void allMagenta();
 
     void hue(uint16_t hue);
 };
