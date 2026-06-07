@@ -18,7 +18,6 @@ void MiniNeoPixel::set(uint8_t r, uint8_t g, uint8_t b) {
 
 void MiniNeoPixel::set(uint32_t color) {
   _strip->fill(color);
-  }
 }
 
 void MiniNeoPixel::show() {
@@ -34,7 +33,6 @@ void MiniNeoPixel::all(uint32_t color) {
   _strip->fill(color);
   _strip->show();
 }
-
 
 void MiniNeoPixel::one(uint16_t i, uint8_t r, uint8_t g, uint8_t b) {
   _strip->setPixelColor(i, _strip->Color(r, g, b));
