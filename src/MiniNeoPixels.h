@@ -4,6 +4,8 @@
 #include <Arduino.h>
 #include <Adafruit_NeoPixel.h>
 
+#include "MiniColor.h"
+
 class MiniNeoPixel {
   private:
     Adafruit_NeoPixel* _strip;
